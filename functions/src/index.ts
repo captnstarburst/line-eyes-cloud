@@ -3,6 +3,7 @@ import * as admin from 'firebase-admin';
 
 import * as roleDoc from './UserCreation/RoleDoc'
 import * as returnEmail from './UserLogin/ReturnEmail'
+import * as changeDisplayName from './UserManagement/ChangeDisplayName'
 
 admin.initializeApp()
 
@@ -14,3 +15,5 @@ export const helloWorld = functions.https.onRequest((request, response) => {
 export const RoleDocCreation = roleDoc.listener
 
 export const ReturnEmail = returnEmail.listener
+
+export const ChangeDisplayName = changeDisplayName.listener
