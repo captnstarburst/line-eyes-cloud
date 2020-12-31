@@ -4,6 +4,7 @@ import * as admin from 'firebase-admin';
 import * as roleDoc from './UserCreation/RoleDoc'
 import * as returnEmail from './UserLogin/ReturnEmail'
 import * as changeDisplayName from './UserManagement/ChangeDisplayName'
+import * as testImageDeleted from './ImageManagement/TestImageDeleted'
 
 admin.initializeApp()
 
@@ -17,3 +18,5 @@ export const RoleDocCreation = roleDoc.listener
 export const ReturnEmail = returnEmail.listener
 
 export const ChangeDisplayName = changeDisplayName.listener
+
+export const TestImageDeleted = testImageDeleted.listener
