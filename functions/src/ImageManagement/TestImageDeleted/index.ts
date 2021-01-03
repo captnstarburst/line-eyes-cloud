@@ -39,7 +39,29 @@ export const listener =
 
         if (!docId) return
 
+
+
         const path = "UploadedTests/" + docId
+
+        try {
+            await admin.firestore()
+                .doc(path)
+                .get()
+                .then((doc) => {
+                    const docData = doc.data()
+                    if (!docData) throw new Error("doc is missing data")
+
+                    return docData.uploaded_by
+                })
+                .then(async (uid) => {
+                    await admin.firestore()
+                        .doc("Stats/" + uid)
+                        .update({ uploaded_tests: admin.firestore.FieldValue.increment(-1) })
+                })
+        } catch (err) {
+            Logger("error", err)
+        }
+
 
         await firebase_tools.firestore
             .delete(path, {
