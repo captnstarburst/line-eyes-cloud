@@ -59,7 +59,7 @@ export const listener =
                         .update({ uploaded_tests: admin.firestore.FieldValue.increment(-1) })
                 })
         } catch (err) {
-            Logger("error", err)
+            Logger("warn", err)
         }
 
 
