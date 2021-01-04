@@ -29,6 +29,7 @@ export const listener =
                             docId: context.params.uuid,
                             response: snap.data().response,
                             uploaded: docData.uploaded,
+                            responded: admin.firestore.FieldValue.serverTimestamp(),
                         })
                 })
                 .catch((err) => {
