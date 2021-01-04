@@ -49,5 +49,10 @@ service cloud.firestore {
     match /UploadedTests/{autoId}/responses/{userId}{
       allow read, write: if request.auth.uid == userId;
     }
+
+    match /ActivityFeed/{userId}/History/{autoId}{
+      allow read: if request.auth.uid == userId;
+      allow write: if false;
+    }
   }
 }
