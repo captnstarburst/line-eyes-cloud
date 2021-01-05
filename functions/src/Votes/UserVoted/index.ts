@@ -30,6 +30,7 @@ export const listener =
                             response: snap.data().response,
                             uploaded: docData.uploaded,
                             responded: admin.firestore.FieldValue.serverTimestamp(),
+                            tags: docData.tags,
                         })
                 })
                 .catch((err) => {
