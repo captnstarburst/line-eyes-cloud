@@ -10,6 +10,8 @@ import * as testImageUploaded from './ImageManagement/TestImageUploaded'
 import * as reportImage from './ImageManagement/ReportImage'
 import * as userVoted from './Votes/UserVoted'
 import * as userUndoVote from './Votes/UserUndoVote'
+import * as markReportedAsOK from './Admin/MarkReportedAsOK'
+import * as deleteReportedTest from './Admin/DeleteReportedTest'
 
 admin.initializeApp()
 
@@ -35,3 +37,7 @@ export const ReportImage = reportImage.listener
 export const UserVoted = userVoted.listener
 
 export const UserUndoVote = userUndoVote.listener
+
+export const MarkReportedAsOK = markReportedAsOK.listener
+
+export const DeleteReportedTest = deleteReportedTest.listener
