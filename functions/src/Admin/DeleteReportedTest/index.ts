@@ -82,8 +82,15 @@ export const listener =
 
 
         const bucket = admin.storage().bucket();
-        const path = "Tests/" + fileData.uid + "/" + fileData.file;
+        const path = "Tests/" + fileData.uid + "/" + fileData.file
+
+        const ogFile = fileData.file.split('_')
+        const ogPath = "Tests/" + fileData.uid + "/" + ogFile
+
         return bucket.file(path).delete()
+            .then(() => {
+                return bucket.file(ogPath).delete()
+            })
             .then(() => {
                 return ({
                     outcome: true,

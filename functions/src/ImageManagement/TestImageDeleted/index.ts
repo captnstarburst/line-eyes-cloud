@@ -20,6 +20,11 @@ export const listener =
             return
         }
 
+        if (!nameArr[2].includes('500x500')) {
+            Logger("info", "deleted file is the original: " + object.name);
+            return
+        }
+
 
         const docId = await admin.firestore().collection("UploadedTests")
             .where("file_name", "==", nameArr[2])

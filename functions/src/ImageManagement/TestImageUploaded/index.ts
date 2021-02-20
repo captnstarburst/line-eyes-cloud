@@ -53,7 +53,7 @@ export const listener =
 
         return admin.firestore().collection("UploadedTests/")
             .add({
-                file_name: data.uuid,
+                file_name: data.uuid + "_500x500",
                 invalids: 0,
                 negatives: 0,
                 positives: 0,
